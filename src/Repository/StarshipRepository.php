@@ -6,8 +6,9 @@ use Psr\Log\LoggerInterface;
 
 class StarshipRepository
 {
-    public function __construct(private LoggerInterface $logger) {
-        
+    public function __construct(private LoggerInterface $logger)
+    {
+
     }
 
     public function findAll()
@@ -38,5 +39,17 @@ class StarshipRepository
         ];
 
         return $starships;
+    }
+
+    public function find(int $id): ?Starship
+    {
+        $starships = $this->findAll();
+        foreach ($starships as $starship) {
+            if ($starship->getId() == $id) {
+                return $starship;
+            }
+        }
+
+        return null;
     }
 }
