@@ -7,9 +7,9 @@
 
 <div>
 	<p>nous possédons une flotte de
-		{{ numberOfStarships }}
+		{{ ships|length }}
 		vaisseaux spaciaux !</p>
-	{% if numberOfStarships > 400 %}
+	{% if ships|length > 400 %}
 		<p>
 			C'est une flotte considérable !
 		</p>

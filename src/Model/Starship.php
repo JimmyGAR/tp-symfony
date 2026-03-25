@@ -1,8 +1,9 @@
 <?php
 
-class Starships
-{
+namespace App\Model;
 
+class Starship
+{
 
     public function __construct(
         private int $id,
