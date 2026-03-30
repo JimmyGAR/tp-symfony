@@ -1,42 +1,50 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ parent() }} Starshop{% endblock %}
+{% block title %}
+	{{ parent() }}
+	Starshop
+{% endblock %}
 {% block body %}
-<h1>
-	<strong>Hello World !</strong>
-</h1>
+	<h1>
+		<strong>Hello World !</strong>
+	</h1>
 
-<div>
-	<p>nous possédons une flotte de
-		{{ ships|length }}
-		vaisseaux spaciaux !</p>
-	{% if ships|length > 400 %}
-		<p>
-			C'est une flotte considérable !
-		</p>
-	{% endif %}
-</div>
+	<div>
+		<p>nous possédons une flotte de
+			{{ ships|length }}
+			vaisseaux spaciaux !</p>
+		{% if ships|length > 400 %}
+			<p>
+				C'est une flotte considérable !
+			</p>
+		{% endif %}
+	</div>
 
-<div>
-	<table>
-		<tr>
-			<th>Name</th>
-			<td>{{ myShip.name }}</td>
-		</tr>
-		<tr>
-			<th>Class</th>
-			<td>{{ myShip.class }}</td>
-		</tr>
-		<tr>
-			<th>Captain</th>
-			<td>{{ myShip.captain|upper }}</td>
-		</tr>
-		<tr>
-			<th>Status</th>
-			<td>{{ myShip.status }}</td>
-		</tr>
-	</table>
-</div>
+	<div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<td>
+					<a href="{{ path('app_starship_show', {id: myShip.id}) }}">
+						{{ myShip.name }}
+					</a>
+				</td>
 
-{# Ceci est un commentaire #}
+			</tr>
+			<tr>
+				<th>Class</th>
+				<td>{{ myShip.class }}</td>
+			</tr>
+			<tr>
+				<th>Captain</th>
+				<td>{{ myShip.captain|upper }}</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>{{ myShip.status }}</td>
+			</tr>
+		</table>
+	</div>
+
+	{# Ceci est un commentaire #}
 
 {% endblock %}
